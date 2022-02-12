@@ -6,7 +6,7 @@ library(ggplot2)
 library(readr)
 
 #change file location
-csv_file <- read_csv("D:/Google Drive/Doctorado/MICROSCOPIA_ARCHIVO/2021_10_7_TubGFP_catDrFP_20min_geles/12kpa_tracks2.csv")
+csv_file <- read_csv("")
 View(csv_file)
 
 
