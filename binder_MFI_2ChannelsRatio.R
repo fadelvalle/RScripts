@@ -10,11 +10,12 @@ df <- bind_rows(df.list, .id = "id")
 df_data <- as.data.frame(df)
 df_data <- df_data %>% rename("Imgnum" = ...1)
 
-
+#Specify the channels you need , in this case only 2 and 4 are selected
 grouped_by_chn<-df_data %>% group_by(Ch)
 grouped_by_chn<- grouped_by_chn %>% filter(Ch==2|Ch==4)
 grouped_by_chn<-as.data.frame(grouped_by_chn)
 
+#create 2 dataframes for each channel, might be usefull to look at them individually 
 chn2 <- grouped_by_chn %>% filter(Ch==2)
 chn4 <- grouped_by_chn %>% filter(Ch==4)
 
