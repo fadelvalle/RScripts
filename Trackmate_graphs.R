@@ -1,0 +1,28 @@
+#Felipe Del Valle Batalla in w10
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(readr)
+
+#change file location
+csv_file <- read_csv("")
+View(csv_file)
+
+
+data <- as.data.frame(csv_file)
+datafilter<-data %>% select(c(ID,TRACK_ID,POSITION_X,POSITION_Y,POSITION_T))
+datafilter$ID <- as.numeric(as.character(datafilter$ID))
+datafilter$TRACK_ID <- as.numeric(as.character(datafilter$TRACK_ID))
+datafilter$POSITION_X <- as.numeric(as.character(datafilter$POSITION_X))
+datafilter$POSITION_Y <- as.numeric(as.character(datafilter$POSITION_Y))
+datafilter$POSITION_T <- as.numeric(as.character(datafilter$POSITION_T))
+
+#gráfico
+Trackgraph_density<-ggplot(datafilter, aes(x=POSITION_X, y=POSITION_Y,col=TRACK_ID)) +
+  geom_density_2d()
+Trackgraph_density
+
+Trackgraph_dots<-ggplot(datafilter, aes(x=POSITION_X, y=POSITION_Y,col=TRACK_ID)) +
+  geom_point()
+Trackgraph_dots
